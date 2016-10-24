@@ -3,13 +3,13 @@
 # VERSION               0.0.1
 
 FROM phusion/baseimage:0.9.16
-MAINTAINER H. Wüthrich "hw@5px.ch"
+MAINTAINER D. Rimron "darran@xalior.com"
 
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
 
 # Environment
-ENV BAMBOO_VERSION 5.7.2
+ENV BAMBOO_VERSION 5.12.2
 ENV BAMBOO_HOME /home/bamboo
 
 # Expose web and agent ports
@@ -20,7 +20,7 @@ EXPOSE 54663
 ADD bamboo-server.sh /etc/service/bamboo-server/run
 
 # Make sure we get latet packages
-RUN apt-get update && apt-get upgrade -y # 28.01.2015
+RUN apt-get update && apt-get upgrade -y # 24.10.2016
 
 # Install Java OpenJDK 7 and VCS tools
 RUN apt-get install -yq python-software-properties && add-apt-repository ppa:webupd8team/java -y && apt-get update
